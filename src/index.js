@@ -157,7 +157,8 @@ class TwitchWebhook extends EventEmitter {
     let requestOptions = {}
     requestOptions.url = this._hubUrl
     requestOptions.headers = {
-      'Client-ID': this._options.client_id
+      'Authorization': 'Bearer ' +  this._options.oauth_token,
+      'Client-ID': this._options.client_id,
     }
     requestOptions.qs = {
       'hub.callback': this._options.callback,
